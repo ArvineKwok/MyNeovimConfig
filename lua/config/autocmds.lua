@@ -87,3 +87,16 @@ vim.api.nvim_create_autocmd("CursorHold", {
     vim.schedule(vim.diagnostic.open_float)
   end,
 })
+
+--vim.api.nvim_create_autocmd("BufEnter", {
+--  pattern = "*",
+--  callback = function()
+--    vim.cmd [[require('lazygit.utils').project_root_dir()]]
+--  end,
+--})
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.cmd [[require("telescope").extensions.lazygit.lazygit()]]
+  end,
+})

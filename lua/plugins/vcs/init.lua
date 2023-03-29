@@ -34,7 +34,12 @@ return {
     event = "BufReadPre",
     opts = {
       signs = {
-        add = { hl = "GitSignsAdd", text = "▍", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+        add = {
+          hl = "GitSignsAdd",
+          text = "▍",
+          numhl = "GitSignsAddNr",
+          linehl = "GitSignsAddLn",
+        },
         change = {
           hl = "GitSignsChange",
           text = "▍",
@@ -59,6 +64,17 @@ return {
           numhl = "GitSignsChangeNr",
           linehl = "GitSignsChangeLn",
         },
+      },
+      attach_to_untracked = true,
+      current_line_blame = true,
+      current_line_blame_opts = {
+        virt_text = true,
+        virt_text_pos = "eol",
+        delay = 150,
+        ignore_whitespace = true,
+      },
+      current_line_blame_formatter_opts = {
+        relative_time = true,
       },
       -- update_debounce = 100,
       on_attach = function(bufnr)
@@ -140,16 +156,8 @@ return {
     end,
     cmd = { "VGit" },
   },
-  {
-    "f-person/git-blame.nvim",
-    cmd = { "GitBlameToggle" },
-  },
-  {
-    "lewis6991/gitsigns.nvim",
-    event = "BufReadPre",
-    requires = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("config.gitsigns").setup()
-    end,
-  },
+  --{
+  --  "f-person/git-blame.nvim",
+  -- cmd = { "GitBlameToggle" },
+  --},
 }

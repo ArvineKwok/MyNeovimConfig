@@ -12,6 +12,7 @@ return {
       "kkharji/sqlite.lua",
       "aaronhallaert/advanced-git-search.nvim",
       "benfowler/telescope-luasnip.nvim",
+      "kdheepak/lazygit.nvim",
     },
     cmd = "Telescope",
     -- stylua: ignore
@@ -94,6 +95,8 @@ return {
       telescope.load_extension "dap"
       telescope.load_extension "frecency"
       telescope.load_extension "luasnip"
+      telescope.load_extension "lazygit"
+      -- telescope.extension.lazygit.lazygit()
     end,
   },
   {
